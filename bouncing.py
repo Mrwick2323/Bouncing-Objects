@@ -22,12 +22,13 @@ def move():
         turtle.right(10)
     if turtle.xcor()<=-240:
         turtle.setheading(180-turtle.heading())
-        turtle.forward(1)
+        turtle.setx(-240)
     if turtle.xcor()>=240:
         turtle.setheading(-180-turtle.heading())
-        turtle.forward(1)
+        turtle.setx(240)
     if abs(turtle.ycor())>=240:
         turtle.setheading(0-turtle.heading())
+        turtle.sety(240*turtle.ycor()/abs(turtle.ycor()))
     pastpos=(turtle.xcor(),turtle.ycor())
     window.ontimer(move,10)
 leftq=False
@@ -51,7 +52,6 @@ backdrop.left(90)
 backdrop.forward(480)
 backdrop.end_fill()
 turtle=Turtle()
-turtle.color("Teal")
 turtle.begin_fill()
 window.listen()
 window.onkeypress(turn_left, "Left")
